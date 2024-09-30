@@ -1,0 +1,30 @@
+/*
+we are using a sliding window technique 
+*/
+#include<bits/stdc++.h>
+using namespace std;
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
+        int i = 0;
+        int j = 0;
+        int maxcnt =0;
+        int cnt = 0;
+        while(j<nums.size()){
+            if(nums[j]==0){
+                k--;
+            }
+            if(k<0){
+                if(nums[i]==0){
+                    k++;
+                }
+                i++;
+                cnt--;
+            }
+            j++;
+            cnt++;
+            maxcnt = max(cnt,maxcnt);
+        }
+        return maxcnt;
+    }
+};
